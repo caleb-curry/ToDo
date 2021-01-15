@@ -79,6 +79,10 @@ hr {
     color:rgb(120, 120, 120);
     background-color: rgb(225, 225, 225);
     box-shadow: 2px 2px 5px rgb(120, 120, 120);
+    list-style-type: none;
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
 }
 
 #settings {

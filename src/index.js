@@ -11,7 +11,29 @@ function settings() {
 }
 
 function addTask() {
-    alert("Add task");
+    //alert("Add task");
+    var todoList = document.getElementById("todo-list");
+    var inProgressList = document.getElementById("in-progress-name");
+    var completedList = document.getElementById("completed-list");
+    var list = "todo";
+
+    if(list === "todo") {
+        var children = todoList.children.length + 1
+        var element = document.createElement("li")
+        element.setAttribute("id", "task")
+        element.appendChild(document.createTextNode("Test"))
+        todoList.appendChild(element);
+        console.log(todoList);
+    }
+    else if(list === "in progress") {
+        console.log(inProgressList);
+    }
+    else if(list === "completed") {
+        console.log(completedList);
+    }
+    else {
+        console.log("Unkown list");
+    }
 }
 
 class Todo extends React.Component {
@@ -28,19 +50,19 @@ class Todo extends React.Component {
                     <div id="todo">
                         <h2>To do</h2>
                         <hr/>
-                        <ul>
+                        <ul id="todo-list">
                         </ul>
                     </div>
                     <div id="in-progress">
                         <h2>In Progress</h2>
                         <hr/>
-                        <ul>
+                        <ul id="in-progress-list">
                         </ul>
                     </div>
                     <div id="completed">
                         <h2>Completed</h2>
                         <hr/>
-                        <ul>
+                        <ul id="completed-list">
                         </ul>
                     </div>
                 </div>
