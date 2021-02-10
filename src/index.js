@@ -81,6 +81,19 @@ function profileOverlayOff() {
     document.getElementById("profile-overlay").style.display = "none";
 }
 
+function changeThemeColor() {
+    var color = document.getElementById("select-color").value;
+    document.getElementById("color-indicator").style.color = color;
+    document.getElementById("nav-bar").style.backgroundColor = color;
+    document.getElementById("todo").style.backgroundColor = color;
+    document.getElementById("in-progress").style.backgroundColor = color;
+    document.getElementById("completed").style.backgroundColor = color;
+    document.getElementById("add-input").style.backgroundColor = color;
+    document.getElementById("settings-input").style.backgroundColor = color;
+    document.getElementById("profile-input").style.backgroundColor = color;
+    //console.log(color);
+}
+
 /*
 
 function dragStart(element) {
@@ -159,8 +172,12 @@ function Add() {
     return (
         <div id="add-overlay">
             <div id="add-input">
-                <button onClick={addOverlayOff}>Close</button>
-                <h1>Add Task</h1>
+                <span id="close" onClick={addOverlayOff}>&#10006;</span>
+                <h1>Add Task</h1><br></br>
+                <label for="task-input">Task: </label>
+                <input type="textbox" id="task-input" placeholder="Task Name"></input><br></br><br></br>
+                <label for="description-input">Description: </label>
+                <textarea id="description-input" placeholder="Description ..."></textarea><br></br><br></br>
             </div>
         </div>
     );
@@ -170,8 +187,21 @@ function Settings() {
     return (
         <div id="settings-overlay">
             <div id="settings-input">
-                <button onClick={addOverlayOff}>Close</button>
+                <span id="close" onClick={settingsOverlayOff}>&#10006;</span>
                 <h1>Settings</h1>
+                <label for="color-setting">Theme Color: </label>
+                <select id="select-color" onLoad={changeThemeColor} onChange={changeThemeColor}>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
+                    <option value="black">Black</option>
+                    <option selected value="grey">Grey</option>
+                    <option value="white">White</option>
+                </select>
+                <span id="color-indicator">&#9632;</span>
             </div>
         </div>
     )
@@ -181,7 +211,7 @@ function Profile() {
     return (
         <div id="profile-overlay">
             <div id="profile-input">
-                <button onClick={addOverlayOff}>Close</button>
+                <span id="close" onClick={profileOverlayOff}>&#10006;</span>
                 <h1>Profile</h1>
             </div>
         </div>

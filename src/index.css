@@ -154,15 +154,33 @@ hr {
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
     z-index: 2;
-    cursor: pointer;
 }
 
 #add-input, #settings-input, #profile-input {
     color: rgb(225, 225, 225);
     background-color: rgb(60, 60, 60);
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    text-align: left;
     width: 50%;
     height: 50%;
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 10%;
+}
+
+#close {
+    color: rgb(225, 225, 225);
+    font-size:25px;
+    text-align: right;
+    margin-left: 97%;
+}
+
+#close:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 20px rgb(225, 225, 225);
+}
+
+#color-indicator {
+    color: grey;
+    font-size: 40px;
 }
