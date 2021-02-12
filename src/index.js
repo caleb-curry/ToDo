@@ -17,6 +17,10 @@ function addTask() {
     //alert("Add task");
     var todoList = document.getElementById("todo-list");
     var element = document.createElement("li");
+
+    var taskName = document.getElementById("task-input");
+    var taskDescription = document.getElementById("description-input");
+    console.log(taskDescription.value);
     
     // Add event listeners for drag and drop actions
     element.setAttribute("id", "task");
@@ -30,8 +34,13 @@ function addTask() {
     //element.addEventListener('drop', dragDrop, false);
     //element.addEventListener('dragend', dragEnd, false);
 
-    element.appendChild(document.createTextNode("Test"));
+    element.appendChild(document.createTextNode(taskName.value));
     todoList.appendChild(element);
+
+    // Clear and close 
+    addOverlayOff();
+    taskName.value = "";
+    taskDescription.value = "";
 
     //console.log(todoList);
 }
@@ -172,12 +181,13 @@ function Add() {
     return (
         <div id="add-overlay">
             <div id="add-input">
-                <span id="close" onClick={addOverlayOff}>&#10006;</span>
-                <h1>Add Task</h1><br></br>
-                <label for="task-input">Task: </label>
+                <span id="close" onClick={addOverlayOff}>&#10006;</span><br></br>
+                <h1 id="title">Add Task</h1><br></br>
+                <label for="task-input">Task: </label><br></br>
                 <input type="textbox" id="task-input" placeholder="Task Name"></input><br></br><br></br>
-                <label for="description-input">Description: </label>
+                <label for="description-input">Description: </label><br></br>
                 <textarea id="description-input" placeholder="Description ..."></textarea><br></br><br></br>
+                <button id="create-task" onClick={addTask}>Create Task</button>
             </div>
         </div>
     );
